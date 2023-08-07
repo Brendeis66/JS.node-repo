@@ -1,4 +1,4 @@
-#1. Callbacks
+# 1. Callbacks
 
         const posts = [
             {title: 'Post One', body: 'This is post one'},
@@ -27,7 +27,7 @@
         createPost({title: 'Post Three', body: 'This is post three'}, getPosts); 
         
 
-#2. Promises
+# 2. Promises
         const posts = [
             {title: 'Post One', body: 'This is post one'},
             {title: 'Post Two', body: 'This is post two'}
@@ -76,7 +76,7 @@
         Promise.all([promise1, promise2, promise3, promise4]).then((value)=> console.log(values));
         //["Hello World", 10, "Goodbye"] 출력
 
-#3. Async / Await
+# 3. Async / Await
         async function init(){
             await createPost({title: 'Post Three', body: 'This is post three'});
             getPosts();
@@ -84,7 +84,7 @@
 
         init();
 
-#4. Async / Await / fetch
+# 4. Async / Await / fetch
         async function fetchUsers(){
             const res = await fetch('https://jsonplaceholder.typicode.com/users')
             const data = await res.json();
