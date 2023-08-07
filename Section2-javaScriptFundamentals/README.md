@@ -1,7 +1,15 @@
-# Node.js 
+# javaScript 기본
 
-추후 내용 추가
 
-## 부제목
+    1. Unknown function
 
-블라블라블라.
+        1.1. 종류 
+
+            a. function(){}
+
+            b. ()=>{}
+                # this 객체 사용을 위해 
+
+    ## 부제목
+
+        블라블라블라.
