@@ -142,8 +142,9 @@
                 setTimeout(()=>{
                 resolve('Done.');
             }, 1500);
-            });    
-            return promise;
+            });
+            // promise 인스턴스가 리턴시에 resolve, reject 여부에 따라 .then, .catch인지 여부가 결정된다. 
+            return promise; 
         };
 
         setTimeout(()=>{
