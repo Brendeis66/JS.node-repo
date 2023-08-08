@@ -1,8 +1,8 @@
 # javaScript 기본
 
-    ##  1. __Unknown function__  ##
+##  1. __Unknown function__  ##
 
-            ### 1.1. 종류 
+    ### 1.1. 종류 
 
                 a.
 
