@@ -6,7 +6,7 @@
 
     - a. 명시적인 Listner() 구현하기
     ```javascript
-       기// require()를 통하여 모듈 import 하기
+       // require()를 통하여 모듈 import 하기
         const http = require('http');
 
         function rqListner(req, res){
@@ -31,7 +31,7 @@
         const http = require('http');
 
         http.createServer((req, res)=>{
-            
+
         });
     ```  
 
