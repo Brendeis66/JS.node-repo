@@ -102,8 +102,56 @@
         console.log(name, age);
 
         const hobbies = ['A', 'B', 'C', 'D', 'E'];
-
+        // 기존 배열을 새로운 배열에 복사(추출)
         const [hobby1, hobby2] = hobbies;
     ```
+### Async code, Promise
 
+- a. Asyncronous function 정의 
+    
+    ```javascript
+
+        // setTimeout() 2초 경과 후 callback 내부 함수인 '()=>{}'를 호출 하고 
+        // 내부 콜백 작업이 완료되면 setTimer() 도 작업이 완료 된다. 
+        // 비동기적 코드(동기적 코드에 영향(non blocking)을 주지 않고) 수행된다.
+
+        ////////////////////////////////////////
+        // Callback 
+        const fetchData = callback => {
+            setTimeout(()=>{
+                callback('Done.');
+            }, 1500);
+        };
+
+        setTimeout(()=>{
+            console.log('Timer is done!');
+            fetchData( text=>{
+                console.log(text);
+            })
+        }, 2000);
+
+        console.log('Hello!');  //동기적 코드
+        console.log('Hi!');     //동기적 코드
+        
+        ///////////////////////////////////////
+        // Promise
+         const fetchData = callback => {
+            setTimeout(()=>{
+                callback('Done.');
+            }, 1500);
+        };
+
+        setTimeout(()=>{
+            console.log('Timer is done!');
+            fetchData( text=>{
+                console.log(text);
+            })
+        }, 2000);
+
+        console.log('Hello!');  //동기적 코드
+        console.log('Hi!');     //동기적 코드
+     
+    
+    
+    ```
 
