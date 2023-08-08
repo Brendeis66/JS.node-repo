@@ -5,7 +5,7 @@
 
             1.1. 종류 
 
-                a.  ``` javaScript 
+                a.  ``` java 
                         function(){} 
                     ```
 
