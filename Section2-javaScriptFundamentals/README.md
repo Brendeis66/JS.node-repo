@@ -4,8 +4,8 @@
     <h2> 1. Unknown function </h2>
 
             1.1. 종류 
-
-                a.  ``` java 
+                a.                
+                    ``` javascript 
                         function(){} 
                     ```
 
