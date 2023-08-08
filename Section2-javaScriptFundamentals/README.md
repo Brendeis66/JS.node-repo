@@ -5,7 +5,9 @@
 
             1.1. 종류 
 
-                a. ``` javasscript function(){} ```
+                a.  ``` javaScript 
+                        function(){} 
+                    ```
 
                 b. ()=>{}
                 
