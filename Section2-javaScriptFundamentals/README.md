@@ -132,20 +132,31 @@
 
         console.log('Hello!');  //동기적 코드
         console.log('Hi!');     //동기적 코드
-        
+
         ///////////////////////////////////////
         // Promise
-         const fetchData = callback => {
-            setTimeout(()=>{
-                callback('Done.');
+         const fetchData = () => {
+
+            // promise에는 resolve()와 reject()가 callback 함수로 존재한다.
+            const promise = new Promise((resolve, reject)=>{
+                setTimeout(()=>{
+                resolve('Done.');
             }, 1500);
+            });    
+            return promise;
         };
 
         setTimeout(()=>{
             console.log('Timer is done!');
-            fetchData( text=>{
+            fetchData()
+            .then(text=> {
                 console.log(text);
+                return fetchData(); //다음 .then의 참조용을 위해 다시 호출
             })
+            .then(text2 =>{
+                console.log(text2);
+            });
+
         }, 2000);
 
         console.log('Hello!');  //동기적 코드
