@@ -1,20 +1,28 @@
 # javaScript 기본
 
+    ##  1. __Unknown function__  ##
 
-    <h2> 1. Unknown function </h2>
+            ### 1.1. 종류 
 
-            1.1. 종류 
-                a.                
-                    ``` javascript 
-                        function(){} 
+                a.
+
+                    <pre><code>
+
+                    function(){} 
                     ```
+                    <code>
+                    </pre>
+                b. 
 
-                b. ()=>{}
-                
+                    ```javascript
+
+                    ()=>{}
+                    ```
+                    
                 c.  function_name(args1, args2)=>{ //명시형
 
                 }
-    2. Object
+    ##  1. Object
             1.1. 
                     a. const object = {
                         name: '',
@@ -28,7 +36,7 @@
                     };
                     object.function();
     
-    3. Array
+    ##  2. Array
             1.1.
                     a.  const elementsOfArrays = ['A', 'B', 'C'];
                         for (let elements of elementsOfArrays){}
