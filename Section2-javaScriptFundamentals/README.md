@@ -85,11 +85,25 @@
             };
             // output : [1,2,3,4,5,6,7] 
             console.log(toArray(1,2,3,4,5,6,7));
-             
+            
 
     ``` 
             
-- e. *destructuring*
+- e. *object destructuring, array destructuring*
+    ```javascript
+        // 필요한 부분만 객체를 분해하여 추출 { element }
+        const printName = ({ name }) => {
+            console.log(name);
 
+        }
+        printName(person);
+        // 객체의 필요한 요소만 추출 하여 복사
+        const { name, age } = person;
+        console.log(name, age);
+
+        const hobbies = ['A', 'B', 'C', 'D', 'E'];
+
+        const [hobby1, hobby2] = hobbies;
+    ```
 
 

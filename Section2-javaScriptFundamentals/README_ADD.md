@@ -7,8 +7,9 @@
         ];
 
         function getPosts(){
-            //  setTimer() 인자에 unknown()를 callback하여 먼저 callback내부 코드를 실행하고, 
-            //  1초 뒤에 dom객체를 뿌려준다.
+            //  setTimeout()가 1초가 경과되면  
+            //  인자의 unknown()의 callback내부 코드를 실행하고, 
+            //  callback 내부 작업이 완료 되면 콜백 함수의 실행이 완료된다.
             setTimeout(() => { 
                 let output = '';
 
@@ -22,7 +23,8 @@
         }
 
         //  인자에 함수명만, 양괄호 없이 넘겨 그리고 함수 내부에 인자()로 호출함으로써 callback 호출 
-        //  마찬가지로 setTimer()가 unknown() '()={}' 를 호출하여 먼저 내부를 수행하고 2초뒤에 timeout이 풀리게 된다.
+        //  마찬가지로 setTimeout()가 2초가 경과 후 unknown() 인 '()={}' 콜백함수가(구체적으로 getPost()) 종료되면 
+        //  setTimer 콜백함수의 실행이 종료가 된다.
         function createPost(post, callback){
             setTimeout(()=>{
                 posts.push(post)
@@ -37,9 +39,9 @@
         //  <li>Post Two</li> 
         //  <li>Post Three</li> 
         
-        //  call stack 순서 : 1.createPost 진입 -> 2. createPost.setTimer 내부 콜백 -> 
-        //  3. getPost 진입 -> 4. getPost.setTimer 내부 콜백 -> 5. getPost.forEach() 내부 콜백 ->
-        //  6. forEach() 종료 -> setTimeout 종료(1초) -> setTimeout 종료(2초) -> createPost 종료() 
+        //  call stack 순서 : 1.createPost 진입 -> 2. createPost.setTimer 2초 경과 후 -> 
+        //  3. getPost 진입 -> 4. getPost.setTimer 1초 경과 후 -> 5. getPost.forEach() 내부 콜백 ->
+        //  6. forEach() 종료 -> setTimeout 콜백 종료 -> setTimeout 콜백 종료 -> createPost 종료() 
     
         createPost({title: 'Post Three', body: 'This is post three'}, getPosts); 
 ``` 
@@ -77,7 +79,7 @@
         }
 
         ///////////////////////////////////////////////////////////////////////////////////////
-        //  호출 순서: 1. Promise()에서 resolve나 reject가 이루어지면 
+        //  호출 순서: 1. Promise 인스턴스 생성
         //           2. setTimeout() 내부 콜백이 이루어지고 error 결과에 따라 resolve또는 reject가 수행된다.
         //           3. resolve()가 수행되면 .then(getPosts)를 통하여 getPosts()가 호출되어지며,
         //           4. reject()가 수행되면 .catch(err=> console.log(err));가 호출된다.
