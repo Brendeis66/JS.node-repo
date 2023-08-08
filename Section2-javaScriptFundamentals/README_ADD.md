@@ -1,5 +1,5 @@
 # 1. Callbacks
-    ```javascript
+```javascript
 
          const posts = [
             {title: 'Post One', body: 'This is post one'},
@@ -12,16 +12,17 @@
             setTimeout(() => { 
                 let output = '';
 
-                //  iteration - forEach()도 마찬가지로 unknown()내부 부터 돌려 원소를 출력 서식을 재조합하여
-                //   
-
+                //  iteration - forEach()도 마찬가지로 unknown()내부의 코드 수행 
+                //  반복문을 통해 <li>post 배열 안의 객체().title</li> 조합하여 ouput변수에 추가 
                 posts.forEach((post, index)=>{  
-                // 각각의 원소를 뽑아낸다. 
+                    // 각각의 title 원소를 뽑아낸다. 
                     output += `<li>${post.title}</li>`;
                 });
                 document.body.innerHTML = output;
             }, 1000/* 1 sec delay */);
         }
+
+        // 인자에 함수명만, 양괄호 X 넘겨 그리고 함수 내부에 인자()로 호출함으로써 callback 호출 
         function createPost(post, callback){
             setTimeout(()=>{
                 posts.push(post)
@@ -32,7 +33,7 @@
         // 이렇게 되면 posts에 push가 되고 getpost를 호출한다. 2초가 지난뒤에 PostOne, PostTwo, Post Three가 출력된다.  
         // 호출방법 참고 
         createPost({title: 'Post Three', body: 'This is post three'}, getPosts); 
-    ``` 
+``` 
 # 2. Promises
         const posts = [
             {title: 'Post One', body: 'This is post one'},
