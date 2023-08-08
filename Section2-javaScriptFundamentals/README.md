@@ -1,27 +1,23 @@
 # javaScript 기본
 
-##  1. __Unknown function__  ##
+>  1. Unknown function 
 
-    ### 1.1. 종류 
+- 1.1. 종류 
 
-                a.
-
-                    <pre><code>
-
-                    function(){} 
-                    ```
-                    <code>
-                    </pre>
-                b. 
-
-                    ```javascript
-
-                    ()=>{}
-                    ```
-                    
-                c.  function_name(args1, args2)=>{ //명시형
-
-                }
+- a. 비명시적 함수
+```javascript
+    function(){} 
+```
+- b. 비명시적 함수   
+```javascript
+    ()=>{}
+```
+    
+- c. 명시적 함수  
+```javascript
+    function_name(args1, args2)=>{ 
+    }
+```  
     ##  1. Object
             1.1. 
                     a. const object = {
