@@ -70,11 +70,11 @@
         const promise2 = 10;
         const promise3 = new Promise((resolve, reject) => setTimeOut(resolve, 2000, 'Goodbye'));
 
-        //json 형식의 파일을 fetch 한다.
+        //json 형식의 파일을 -> 배열 형태로 fetch 한다.
         const promise4 = fetch('https://jsonplaceholder.typicode.com/users').then(res.json());
 
         Promise.all([promise1, promise2, promise3, promise4]).then((value)=> console.log(values));
-        //["Hello World", 10, "Goodbye"] 출력
+        //["Hello World", 10, "Goodbye", users[]] 출력
 
 # 3. Async / Await
         async function init(){
