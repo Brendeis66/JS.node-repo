@@ -163,7 +163,6 @@
         console.log('Hello!');  //동기적 코드
         console.log('Hi!');     //동기적 코드
      
-   //췍췍 
     
     ```
 
