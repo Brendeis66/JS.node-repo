@@ -89,7 +89,7 @@
 
     ``` 
             
-    -e. *destructuring*
+- e. *destructuring*
 
 
 

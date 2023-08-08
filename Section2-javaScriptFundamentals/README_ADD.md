@@ -1,14 +1,21 @@
 # 1. Callbacks
+    ```javascript
 
-        const posts = [
+         const posts = [
             {title: 'Post One', body: 'This is post one'},
             {title: 'Post Two', body: 'This is post two'}
         ];
 
         function getPosts(){
-            setTimeout(() => { //callback function 정의 하여 callback을 catch 한다.
+            //  setTimer() 인자에 unknown()를 callback하여 먼저 callback내부 코드를 실행하고, 
+            //  1초 뒤에 dom객체를 뿌려준다.
+            setTimeout(() => { 
                 let output = '';
-                posts.forEach((post, index)=>{ // iteration - callback function 정의하여 
+
+                //  iteration - forEach()도 마찬가지로 unknown()내부 부터 돌려 원소를 출력 서식을 재조합하여
+                //   
+
+                posts.forEach((post, index)=>{  
                 // 각각의 원소를 뽑아낸다. 
                     output += `<li>${post.title}</li>`;
                 });
@@ -25,8 +32,7 @@
         // 이렇게 되면 posts에 push가 되고 getpost를 호출한다. 2초가 지난뒤에 PostOne, PostTwo, Post Three가 출력된다.  
         // 호출방법 참고 
         createPost({title: 'Post Three', body: 'This is post three'}, getPosts); 
-        
-
+    ``` 
 # 2. Promises
         const posts = [
             {title: 'Post One', body: 'This is post one'},
