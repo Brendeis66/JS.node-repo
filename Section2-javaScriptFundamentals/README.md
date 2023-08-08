@@ -42,7 +42,7 @@
 - code : *map을 이용한 함수(필수적)*
     ```javascript
         //  새로운 배열을 생성하여, 각 원소마다 'S'를 추가하여 삽입한다.
-        elementsOfArrays.map(args=> 'S' + elementsOfArrays)
+        elementsOfArrays.map(args => 'S' + elementsOfArrays)
          
     
     ```
@@ -80,7 +80,7 @@
             //  [rest 연산자 ] -- 용도(인자에 쓰일때 사용)           
             ////////////////////////////////////////////////////////////////////////////
             //   ...args는 인자들을 조합하여, arg에 하나의 배열로 만든다. 
-            const toArray = (...args) =>{
+            const toArray = (...args) => {
                         return args
             };
             // output : [1,2,3,4,5,6,7] 
@@ -139,7 +139,7 @@
 
             // promise에는 resolve()와 reject()가 callback 함수로 존재한다.
             const promise = new Promise((resolve, reject)=>{
-                setTimeout(()=>{
+                setTimeout(() => {
                 resolve('Done.');
             }, 1500);
             });
@@ -147,14 +147,14 @@
             return promise; 
         };
 
-        setTimeout(()=>{
+        setTimeout(() => {
             console.log('Timer is done!');
             fetchData()
-            .then(text=> {
+            .then(text => {
                 console.log(text);
                 return fetchData(); //다음 .then의 참조용을 위해 다시 호출
             })
-            .then(text2 =>{
+            .then(text2 => {
                 console.log(text2);
             });
 

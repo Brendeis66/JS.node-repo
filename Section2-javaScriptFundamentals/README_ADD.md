@@ -26,7 +26,7 @@
         //  마찬가지로 setTimeout()가 2초가 경과 후 unknown() 인 '()={}' 콜백함수가(구체적으로 getPost()) 종료되면 
         //  setTimer 콜백함수의 실행이 종료가 된다.
         function createPost(post, callback){
-            setTimeout(()=>{
+            setTimeout(() => {
                 posts.push(post)
                 callback();
             }, 2000);
@@ -64,8 +64,8 @@
             }, 1000/* 1 sec delay */);
         }
         function createPost(post){
-            return new Promise((resolve, reject)=>{
-                setTimeout(()=>{
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
                     posts.push(post)
                     
                     const error = false;
