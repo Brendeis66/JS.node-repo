@@ -1,7 +1,7 @@
 # javaScript 기본
 
 
-    ## 1. Unknown function
+    <h2> 1. Unknown function </h2>
 
             1.1. 종류 
 
