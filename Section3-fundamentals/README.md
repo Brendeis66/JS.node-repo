@@ -34,5 +34,9 @@
 
         });
     ```  
+- 1.2. 서버에서 다루는 req 주요 정보 
+    - a, req.url, req.method, req.headers
 
+- 1.3. 서버에서 다루는 res 주요 정보 
+    - 
 
