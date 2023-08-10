@@ -4,20 +4,76 @@
 
 - 1.1. *종류*
 
-    - a. *비명시적 함수*
-    ```javascript
-        function(){} 
-    ```
-    - b. *비명시적 함수*   
-    ```javascript
-        ()=>{}
-    ```
-          
-    - c. *명시적 함수*
+    - a. *명시적 함수*
     ```javascript
         function function_name(args1, args2)=>{ 
         }
+
+        function sum(a, b){
+            return a + b;
+        }
+
+        function isPositive(number){
+            return number >= 0;
+        }
+
+        function randomNumber(){
+            return Math.random;
+        }
+
+        document.addEventListener('click', function(){
+            console.log('click');
+        });
     ```  
+
+    - b. *비명시적 함수 (ES6)*   
+    ```javascript
+        ()=>{}
+        // => 이후로 바로 리턴 하기 때문에 return 이 필요없다
+        let sum = (a, b) => a + b;
+
+        let isPositive = number => number >= 0;
+        
+        let randomNumber = () => Math.random;
+
+        document.addEventListener('click', () => console.log('Click'));
+    ```
+    - c. *scope에서의 비명시적 함수와 명시적 함수의 차이점*
+    
+    ```javascript
+        class Person{
+            constructor(name){
+                this.name = name;
+            }
+
+            printNameArrow(){
+                setTimeout(()=>{
+                    console.log(`Arrow: ${this.name}`);
+                }, 100);
+            }
+
+            printNameFunction(){
+                setTimeout(()=>{
+                    console.log(`Function: ${this.name}`); 
+                }, 100);
+            }
+        }
+        let person  = new Person('Bob');
+        person.printNameArrow(); // Bob을 재대로 출력
+
+        //  Bob을 출력하지 못함 global scope this를 사용하기 때문이다.
+        person.printNameFunction(); //  결과 '';  
+        console.name(this.name);    //  결과 '';
+        //  무슨말인가 하면, 여기서 위 this.name을 출력해보자 마찬가지로 빈 문자열이 나온다. 
+
+    
+    ```
+
+    - d. *비명시적 함수*
+    ```javascript
+        function(){} 
+    ```      
+
 ### 2. Object
 - code
     ```javascript
@@ -168,4 +224,107 @@
     
     
     ```
+### Promise 추가 코드 설명, callback의 문제점 그리고 Promise로 전환하게 된 이유 설명
+- a. Promise에 대한 이해를 위한 기본 코드  
+    ```javascript    
 
+        //  Promise에 대한 기본 정의 
+        //  '약속' 과 같이 어떤 조건이 달성되면 이렇게 해줄게 라고 선언을 미리 해두고
+        const p = new Promise((resolve, reject) => {
+            let a = 1 + 1;
+            if(a==2){
+                resolve('Success');
+            }else{
+                reject('Failed');
+            }
+        })
+        //  조건이 성사 되면 조건에 따라 Promise 인스턴스.then() 또는 .catch()로 실행된다.  
+        p.then((message) => {
+            console.log(`This is in the then ` +message);
+        }).catch((message) => ) {
+            console.log(`This is in the catch ` +message);
+        }
+
+
+    ```
+- b. callback의 예시 
+    ```javascript 
+
+        //  TODO: 1. callback function
+        //  TODO: 2. promise function 
+
+        //  conditions
+        const conditionOne = false;
+        const conditionTwo = false;
+
+        //  callback() 정의
+        function mainCallback(callback, errorCallback){
+            if(conditionOne){
+                errorCallback({
+                    name: 'error 1',
+                    message: ':('
+                });
+            }else if(conditionTwo){
+                errorCallback({
+                    name: 'error 2',
+                    message: 'WTF'
+                });
+            }else{
+                callback('^^');
+            }
+        }
+        //  promise() 정의
+        function mainPromise(){
+            return new Promise((resolve, reject) => {
+                if(conditionOne){
+                    reject({
+                        name: 'error 1',
+                        message: ':('
+                    });
+                }else if(conditionTwo){
+                    reject({
+                        name: 'error 2',
+                        message: 'WTF'
+                    });
+                }else{
+                    resolve('^^');
+                }
+            }) 
+        }
+
+        mainCallback((message) => {
+            console.log('Success: ' +message);
+        }, (error)=>{
+            console.log(error.name+ ' ' +error.message);
+        });
+        
+        mainPromise().then((message) => {
+           console.log('Success: ' +message);
+        }).catch((error) => {
+           console.log(error.name+ ' ' +error.message); 
+        });
+    ```
+- c. 다중 Promise 예시 
+    ```javascript 
+
+        const p1 = new Promise((resolve, reject) => {
+            resolve('promise 1');
+        });
+
+        const p2 = new Promise((resolve, reject)=>{
+            resolve('promise 2');
+        });
+
+        const p3 = new Promise((resolve, reject)=>{
+            resolve('promise 3');
+        });
+        // promise의 작업들이 모두 완료 될 때 까지 대기 한 후 .then에서 출력
+        // 만일 이 세 작업 중 하나라도 완료된것을 출력하고자 할때, Promise.race()를 사용한다. 
+        Promise.all([
+            p1,
+            p2,
+            p3
+        ]).then((message)=> {
+            console.log(messages);
+        });
+    ```
