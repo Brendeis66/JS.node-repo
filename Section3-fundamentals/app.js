@@ -19,7 +19,22 @@ const server = http.createServer((req, res)=>{
         res.write('</html>');
         return res.end();
     }
+    //  message로 redirect히며 POST 이어야 한다. 
     if(url === '/message' && method === 'POST'){
+        //  request event listener 등록 
+        //  특정 이벤트를 정의하여 listening 할 수 있다. 
+        const body = [];
+        req.on('data'/* stream data chunk 또는 버퍼*/, (chunk) => {
+            body.push(chunk);
+            console.log(chunk);
+        });
+
+        req.on('end', ()=> {
+            const parseBody = Buffer.concat(body).toString();
+            console.log(parseBody);
+        });
+
+        //  파일시스템   
         fs.writeFileSync('message.text', 'DUMMY');
         res.statusCode = 302;
         res.setHeader('Location', '/');
