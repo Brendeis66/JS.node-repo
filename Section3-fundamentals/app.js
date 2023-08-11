@@ -24,21 +24,32 @@ const server = http.createServer((req, res)=>{
         //  request event listener 등록 
         //  특정 이벤트를 정의하여 listening 할 수 있다. 
         const body = [];
+
+        //  이벤트 핸들러에 등록 (이벤트 큐에서 완료가 되면 ()=>{} 'Arrow'()를 진행한다.)  
         req.on('data'/* stream data chunk 또는 버퍼*/, (chunk) => {
             body.push(chunk);
             console.log(chunk);
         });
-
+        //  이벤트 핸들러에 등록
         req.on('end', ()=> {
             const parseBody = Buffer.concat(body).toString();
-            console.log(parseBody);
-        });
+            //  split separator를 기준점으로 왼쪽 [0], 오른쪽 [1]로 구분
+            const message = parseBody.split('=')[1];
 
-        //  파일시스템   
-        fs.writeFileSync('message.text', 'DUMMY');
-        res.statusCode = 302;
-        res.setHeader('Location', '/');
-        return res.end();
+            console.log(parseBody);
+            
+            //  fs.writeFileSync() 사용시 동기적 파일 시스템 저장(블로킹 발생) 
+            //  따라서 비동기적인 파일 쓰기()인 writeFile()를 쓴다.
+            //  3번째 인자인 callback()로 결과를 삽입한다.(보통은 에러처리를 한다.)
+            fs.writeFile('message.text', message, err=>{
+            
+            // 리스폰스 관련 코드 및 헤더 관련 저장 위치 지정  
+            res.statusCode = 302;
+            res.setHeader('Location', '/');
+            // 한번 response.end()가 호출되어지면 더이상 response에 대해 처리하지 않는다!
+            return res.end();
+            });           
+        });
     }
 
 
