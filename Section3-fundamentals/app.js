@@ -52,7 +52,9 @@ const server = http.createServer((req, res)=>{
         });
     }
 
+    // --> 이부분은 res.end()가 위에서 이루어져 있기 떄문에 runtime error가 발생한다. 
 
+    
     //  첫번쨰 args인 Content-Type은 브라우저가 받아드리는 기본 헤더 형태이며, 
     //  두번째 args인 text/html은 첫번째 인자의 Contents-Type 해더에 대응하는 키값을 설정하는 것이다. 
     //  response시 html형태로 일련의 메타정보로 반환한다.
