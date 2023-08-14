@@ -28,7 +28,8 @@
    ```
 
 - 1.3. 전역 기능 vs 코어 모듈 vs 제3자 모듈
-   ```markdown 
+   ```markdown
+   
       지난 강의에서 Node.js에서 사용 가능한 기능들의 중요한 개념과 사용법을 알려드렸습니다.
 
       기본적으로 다음과 같이 구분할 수 있습니다.
@@ -54,10 +55,10 @@
       추후 강의에서 다룰 예정이라 지금 당장 이해하실 필요는 없지만, 그 예로
 
       // Terminal 또는 명령 프롬프트에서는
-      
+
       npm install --save express-session
       // app.js 같은 코드 파일에서는
-      
+
       const sessions = require('express-session');
             
    ```   
