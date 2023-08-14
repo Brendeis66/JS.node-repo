@@ -23,7 +23,7 @@
       ###### 개발용에서만 필요한 local dependency 일 경우 (이 프로젝트에서만 사용 가능하다.)
       npm install 패키지명 --save-dev 
 
-      ###### 이 프로젝트에는 설치하지 않지만 머신(OS env) 전체에 설치
+      ###### 이 프로젝트에는 설치하지 않지만 머신(OS env) 전체에(global dependency) 설치 - terminal에서 사용 가능
       npm install -g nodemon
    ```
 
