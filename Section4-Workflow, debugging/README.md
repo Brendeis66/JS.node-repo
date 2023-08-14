@@ -17,19 +17,19 @@
       
       터미널에서 npm install 패키지명 
 
-      ###### 제품 배포에 필요한 dependency 일 사용 (이 프로젝트에서만 사용 가능하다.)
+      ###### 제품 배포에 필요한 local dependency 일 사용 (이 프로젝트에서만 사용 가능하다.)
       npm install 패키지명 --save 
 
-      ###### 개발용에서만 필요한 dependency 일 경우 (이 프로젝트에서만 사용 가능하다.)
+      ###### 개발용에서만 필요한 local dependency 일 경우 (이 프로젝트에서만 사용 가능하다.)
       npm install 패키지명 --save-dev 
 
       ###### 이 프로젝트에는 설치하지 않지만 머신(OS env) 전체에 설치
-
+      npm install -g nodemon
    ```
 
 - 1.3. 전역 기능 vs 코어 모듈 vs 제3자 모듈
    ```markdown
-   
+
       지난 강의에서 Node.js에서 사용 가능한 기능들의 중요한 개념과 사용법을 알려드렸습니다.
 
       기본적으로 다음과 같이 구분할 수 있습니다.
