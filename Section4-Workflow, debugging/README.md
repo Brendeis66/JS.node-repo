@@ -61,4 +61,13 @@
 
       const sessions = require('express-session');
             
-   ```   
+   ```
+   - 1.4. 에러 처리 
+   ```markdown  
+
+      ###### Syntax Errors
+
+      ###### Runtime Errors
+
+      ###### Logical Errors
+   ``` 

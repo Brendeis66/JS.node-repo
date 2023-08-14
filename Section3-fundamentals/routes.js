@@ -36,11 +36,11 @@ const requestHandler = (req, res) => {
             //  3번째 인자인 callback()로 결과를 삽입한다.(보통은 에러처리를 한다.)
             fs.writeFile('message.text', message, err=>{
             
-            // 리스폰스 관련 코드 및 헤더 관련 저장 위치 지정  
-            res.statusCode = 302;
-            res.setHeader('Location', '/');
-            // 한번 response.end()가 호출되어지면 더이상 response에 대해 처리하지 않는다!
-            return res.end();
+                // 리스폰스 관련 코드 및 헤더 관련 저장 위치 지정  
+                res.statusCode = 302;
+                res.setHeader('Location', '/');
+                // 한번 response.end()가 호출되어지면 더이상 response에 대해 처리하지 않는다!
+                return res.end();
             });           
         });
     }
