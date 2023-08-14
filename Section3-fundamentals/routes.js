@@ -22,6 +22,7 @@ const requestHandler = (req, res) => {
             body.push(chunk);
             console.log(chunk);
         });
+        
         //  이벤트 핸들러에 등록
         req.on('end', ()=> {
             const parseBody = Buffer.concat(body).toString();
