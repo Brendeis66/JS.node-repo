@@ -165,7 +165,7 @@
     ```
 ### Async code, Promise
 
-- a. Asyncronous function 정의 
+- a. Asyncronous function(callback, promise) 정의 
     
     ```javascript
 
@@ -327,4 +327,55 @@
         ]).then((message)=> {
             console.log(messages);
         });
+    ```
+- d. Async, Await 
+  - 1. Promise code 예시
+    ```javascript 
+    function makeRequest(location){
+        return new Promise((resolve, reject)=>{
+            console.log(`making Request to ${location}`);
+            if(location === 'Google'){
+                resolve('Google says hi');
+            }else {
+                reject('We can only talk to Google');
+            }
+        });
+    }
+    
+    function processRequest(response){
+        return new Promise((resolve, reject)=> {
+            console.log('Processing response');
+            resolve(`Extra Information + ${response}`);
+        });
+    }
+
+    makeRequest('Google').then(response => {
+        console.log(`Response Received`);
+        return processRequest(response)
+    }).then(processResponse => {
+        console.log(processResponse);
+    }).catch(err=>{
+        console.log(err);
+    })
+    //  output:
+    //  making Request to Google
+    //  Response Received
+    //  Processing response
+    //  Extra Information + Google says hi
+    ```
+- 2. async code 
+    ```javascript
+    async function doWork(){
+        try{
+                const response = await makeRequest('Google');
+                console.log(`Response Received`); 
+                const processResponse = await processRequest(response);
+                console.log(processResponse); 
+        }catch (err){
+            console.log(err);
+        }
+          
+    }
+    doWork();
+    
     ```
