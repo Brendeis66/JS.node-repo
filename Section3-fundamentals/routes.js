@@ -20,7 +20,7 @@ const requestHandler = (req, res) => {
         //  이벤트 핸들러에 등록 (이벤트 큐에서 완료가 되면 ()=>{} 'Arrow'()를 진행한다.)  
         req.on('data'/* stream data chunk 또는 버퍼*/, (chunk) => {
             body.push(chunk);
-            console.log(chunk);
+            console.table(chunk);
         });
         
         //  이벤트 핸들러에 등록
@@ -29,7 +29,7 @@ const requestHandler = (req, res) => {
             //  split separator를 기준점으로 왼쪽 [0], 오른쪽 [1]로 구분
             const message = parseBody.split('=')[1];
 
-            console.log(parseBody);
+            console.assert(message != 'message' || message != '' );
             
             //  fs.writeFileSync() 사용시 동기적 파일 시스템 저장(블로킹 발생) 
             //  따라서 비동기적인 파일 쓰기()인 writeFile()를 쓴다.
